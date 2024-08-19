@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    background-color: white;
+    --page-background-color: #bbbbbb;
+    --text-background-color: #dddddd;
+    --selected-tab-color: #aaaaaa;
+
+    --text-color: #222222;
+
+    --accent-color: #980000ff;
+
+    --accent-width: 4%;
+    --page-background-margin-sides: 6%;
+    --card-margins: 2%;
+
+    --navbar-height: calc(3 * var(--base-font-size));
+
+    --base-font-size: clamp(1.3rem, 3vmin, 1.6rem);
+}
+@media screen and (width < 600px) {
+    :root {
+        --card-margins: 1%;
+        --navbar-height: calc(6 * 1.25 * var(--base-font-size));
+    }
+}
+
+/* add margins to the left & right of the page */
+.page-wrapper {
+    margin: 0;
+    margin-top: var(--navbar-height);
+    width: 100%;
+    z-index: 0;
+}
+/* create a pseudo-element in order to get the partial background */
+.page-wrapper::before {
+    content: '';
+    position: fixed;
+    height: calc(100% - var(--page-background-margin-sides));
+    width: calc(100% - 2*var(--page-background-margin-sides));
+    top: 0;
+    left: var(--page-background-margin-sides);
+    z-index: -1;
+    background-color: var(--page-background-color);
+}
+
+/* configure text styles */
+h1, h2, h3, h4, h5, h6, p, a {
+    /* light blue console style with slight glow */
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+}
+h1 {
+    font-size: calc(1.6 * var(--base-font-size));
+}
+h2 {
+    font-size: calc(1.4 * var(--base-font-size));
+}
+h3 {
+    font-size: calc(1.2 * var(--base-font-size))
+}
+p, a {
+    font-size: var(--base-font-size);
+}
+a {
+    cursor: pointer;
+}
+
+
+/* set up the navbar */
+.navbar {
+    /* stay at top of screen */
+    position: fixed;
+    left: var(--accent-width);
+    top: 0;
+    width: calc(100% - var(--accent-width));
+
+    margin: 0;
+    padding: 0;
+
+    /* draw black over any elements behind the navbar */
+    background-color: var(--text-background-color);
+}
+/* create a pseudo-elemtnt to add an accent */
+.navbar::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: var(--accent-width);
+    height: var(--navbar-height);
+
+    background-color: var(--accent-color);
+}
+.navbar ul {
+    /* remove the "standard" list formatting */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: var(--navbar-height);
+
+    display: table;
+
+}
+.navbar ul > * {
+    vertical-align: middle;
+    padding: 0 0.5em;
+    display: table-cell;
+    text-align: center;
+}
+@media screen and (width < 600px) {
+    .navbar ul > * {
+        display: inline-block;
+        width: 100%;
+        height: calc(var(--navbar-height) / 6);
+        padding-inline: 0 100%;
+    }
+}
+
+.navbar a {
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.navbar a.current {
+    background-color: var(--selected-tab-color);
+}
+.navbar a:hover {
+    background-color: var(--page-background-color);
+}
+
+
+/* wrapper for the rest of the page */
+.page-content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.page-content > * {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+/* wrapper for a part of the page that should be treated as a box with full width */
+.hbox {
+    display: table;
+    width: 100%;
+}
+
+
+.text-card {
+    display: block;
+    float: right;
+
+    width: calc(100% - clamp(min(300px, 40vh) - 2px, 50% - 2px, max(300px, 40vh) - 2px) - 4 * var(--card-margins) - 3 * var(--base-font-size));
+   
+    margin: var(--card-margins);
+    padding: calc(0.5 * var(--base-font-size));
+    background-color: var(--text-background-color);
+    border-radius: calc(0.5 * var(--base-font-size));
+}
+.text-card#large {
+    display: block;
+    width: calc(100% - 2 * var(--card-margins) - var(--base-font-size));
+}
+
+
+.img-card {
+    display: block;
+    float: left;
+    width: calc(clamp(min(300px, 40vh), 50%, max(300px, 40vh)));
+    height: 40%;
+    margin: var(--card-margins);
+    padding: calc(0.5 * var(--base-font-size));
+    background-color: var(--accent-color);
+    border-radius: calc(0.5 * var(--base-font-size));
+}
+.img-card * {
+    color: white;
+}
+.img-card#large {
+    width: calc(100% - 2 * var(--card-margins) - var(--base-font-size));
+}
+@media screen and (aspect-ratio < 1) {
+    /* on mobile, don't split screen space horizontally (prefer vertical) */
+    .text-card, .text-card#header {
+        width: calc(100% - 2 * var(--card-margins) - var(--base-font-size));
+    }
+    img-card {
+        max-width: calc(100% - 2 * var(--card-margins) - var(--base-font-size));
+    }
+}
+
+
+img, video {
+    border: 1px solid var(--blue);
+}
+
+
+/* an inline icon, for example the phone icon in the contact info section of the home page */
+img.inline-icon {
+    border: none;
+    padding: none;
+    margin: none;
+    background-color: transparent;
+    height: 0.75em;
+    vertical-align: middle;
+}
+
+
+.contact-info {
+    list-style-type: none;
+    position: fixed;
+    right: 0;
+    top: calc(var(--navbar-height) + 2 * var(--card-margins));
+    display: inline-table;
+
+    height: calc(2 * var(--base-font-size));
+
+    vertical-align: middle;
+    text-align: center;
+    margin: 0;
+    padding: calc(0.5 * var(--base-font-size));
+
+    background-color: var(--accent-color);
+    border-radius: calc(0.5 * var(--base-font-size));
+}
+.contact-info li {
+    display: block;
+    height: inherit;
+}
+.contact-info li > a > img {
+    padding: calc(0.25 * var(--base-font-size));
+    height: calc(1.25 * var(--base-font-size));
+    filter: invert(100);
+}
+.contact-info li > a > img:hover {
+    padding: 0;
+    height: calc(1.75 * var(--base-font-size));
+}
+@media screen and (aspect-ratio < 0.75) {
+    ul.contact-info {
+        display: table;
+    }
+    ul.contact-info li {
+        display: table-cell;
+    }
+}
