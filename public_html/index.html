@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome | Alex Kelley</title>
+
+    <link id="style-common" rel="stylesheet" href="styles/common.css" />
+    <link
+      id="style-dark"
+      rel="alternate stylesheet"
+      type="text/css"
+      href="styles/dark.css"
+    />
+    <link id="style-light" rel="alternate stylesheet" href="styles/light.css" />
+
+    <!-- FontAwesome icon kit -->
+    <script
+      src="https://kit.fontawesome.com/3429b93eda.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="scripts/nav_menu.js"></script>
+    <script src="scripts/scroll_detect.js"></script>
+    <script src="scripts/style_switch.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body id="body" class="no-display">
+    <div class="navbar-wrapper">
+      <div class="container">
+        <nav class="navbar-content">
+          <a href="index.html" class="navbar-title" id="navbar-selected">
+            <div class="vertical-center">
+              <h1>Alexander Kelley</h1>
+              <h2>Computer Engineer</h2>
+            </div>
+          </a>
+          <ul class="navbar-page-list">
+            <li class="navbar-home" id="navbar-selected">
+              <a href="index.html"><h3 class="vertical-center">Home</h3></a>
+            </li>
+            <li>
+              <a href="portfolio.html"
+                ><h3 class="vertical-center">Portfolio</h3></a
+              >
+            </li>
+            <li>
+              <a href="qualifications.html"
+                ><h3 class="vertical-center">Qualifications</h3></a
+              >
+            </li>
+            <li>
+              <a href="service.html"
+                ><h3 class="vertical-center">Service</h3></a
+              >
+            </li>
+            <li>
+              <a href="ai.html"><h3 class="vertical-center">AI</h3></a>
+            </li>
+          </ul>
+          <a
+            href="javascript:void(0)"
+            class="style-toggle"
+            aria-label="Toggle Style"
+            onclick="toggleStyle()"
+          >
+            <span class="slider">
+              <i class="fa-solid fa-moon"></i>
+              <i class="fa-solid fa-sun"></i>
+            </span>
+          </a>
+          <a
+            href="javascript:void(0)"
+            class="navbar-menu-button"
+            aria-label="Toggle navigation menu"
+            onclick="toggleNavMenu()"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="container">
+        <div class="page-content page-home">
+          <div class="name-and-title">
+            <h1>Alexander Kelley</h1>
+            <h2>Computer Engineer</h2>
+            <h3>Texas A&M University</h3>
+            <h3>Leidos Innovation Center (LInC)</h3>
+          </div>
+          <ul class="contact-info">
+            <li>
+              <a href="mailto:arkelley77@gmail.com"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </li>
+            <li>
+              <a href="tel:256-541-2811"><i class="fa-solid fa-phone"></i></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/alex-kelley-913485158/"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://github.com/arkel-77"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </li>
+          </ul>
+          <div class="headshot-wrapper">
+            <div class="headshot">
+              <img src="files/Boot Dance Headshot 0.5x.JPG" />
+            </div>
+          </div>
+          <div class="textbox">
+            <h2>About Me</h2>
+            <p>
+              I'm currently a student at
+              <a href="https://www.tamu.edu/">Texas A&M University</a>, pursuing
+              a B.S. in computer engineering with a minor in mathematics, as
+              well as a part-time Robotics Engineer Intern at
+              <a href="https://www.leidos.com/">Leidos, Inc.</a>
+            </p>
+            <p>
+              Over the years, I've participated in several robotics teams and
+              worked on complex projects in fields including embedded systems,
+              data collection and analysis, and artificial intelligence, honing
+              my skills in design, modeling, construction, prototyping, and
+              programming.
+            </p>
+            <p>
+              As a member of the
+              <a href="https://corps.tamu.edu/">Texas A&M Corps of Cadets</a>,
+              I've worked to develop and inspire future leaders, developing my
+              skills in communication, leadership, teamwork, conflict
+              resolution, and crisis management.
+            </p>
+            <p>
+              I'm always looking for new opportunities to stretch my wings and
+              hone my skills, so please check out
+              <a href="portfolio.html">my portfolio</a> to see what I'm working
+              on!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Portfolio | Alex Kelley</title>
+
+    <link
+      id="style-common"
+      rel="stylesheet"
+      type="text/css"
+      href="styles/common.css"
+    />
+    <link
+      id="style-dark"
+      rel="alternate stylesheet"
+      type="text/css"
+      href="styles/dark.css"
+    />
+    <link id="style-light" rel="alternate stylesheet" href="styles/light.css" />
+
+    <!-- FontAwesome icon kit -->
+    <script
+      src="https://kit.fontawesome.com/3429b93eda.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="scripts/nav_menu.js"></script>
+    <script src="scripts/scroll_detect.js"></script>
+    <script src="scripts/style_switch.js"></script>
+  </head>
+  <body id="body" class="no-display">
+    <div class="navbar-wrapper">
+      <div class="container">
+        <nav class="navbar-content">
+          <a href="index.html" class="navbar-title">
+            <div class="vertical-center">
+              <h1>Alexander Kelley</h1>
+              <h2>Computer Engineer</h2>
+            </div>
+          </a>
+          <ul class="navbar-page-list">
+            <li class="navbar-home">
+              <a href="index.html"><h3 class="vertical-center">Home</h3></a>
+            </li>
+            <li id="navbar-selected">
+              <a href="portfolio.html"
+                ><h3 class="vertical-center">Portfolio</h3></a
+              >
+            </li>
+            <li>
+              <a href="qualifications.html"
+                ><h3 class="vertical-center">Qualifications</h3></a
+              >
+            </li>
+            <li>
+              <a href="service.html"
+                ><h3 class="vertical-center">Service</h3></a
+              >
+            </li>
+            <li>
+              <a href="ai.html"><h3 class="vertical-center">AI</h3></a>
+            </li>
+          </ul>
+          <a
+            href="javascript:void(0)"
+            class="style-toggle"
+            aria-label="Toggle Style"
+            onclick="toggleStyle()"
+          >
+            <span class="slider">
+              <i class="fa-solid fa-moon"></i>
+              <i class="fa-solid fa-sun"></i>
+            </span>
+          </a>
+          <a
+            href="javascript:void(0)"
+            class="navbar-menu-button"
+            aria-label="Toggle navigation menu"
+            onclick="toggleNavMenu()"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="container">
+        <div class="page-content page-portfolio">
+          <ul class="card-list">
+            <li class="card">
+              <a
+                href="https://www.shadertoy.com/view/dlc3zn/"
+                class="card-cover"
+              >
+                <video
+                  autoplay
+                  loop
+                  muted
+                  src="files/shader-capture.mp4"
+                ></video>
+              </a>
+              <h2 class="card-header">ASCII Art Shader</h2>
+              <p class="card-content textbox">
+                I made this as a way to learn GLSL because graphics has always
+                been a field that fascinates me. It's a WebGL shader converting
+                live imagery to ASCII art, using edge detection & local contrast
+                to preserve high-frequency details where possible. It can be
+                configured to generate line art or shaded art, and works in both
+                color and black and white.
+              </p>
+              <p class="card-footer textbox">
+                Check it out on Shadertoy
+                <a href="https://www.shadertoy.com/view/dlc3zn/">here</a>.
+              </p>
+            </li>
+            <li class="card">
+              <a
+                href="https://github.com/arkelley77/WordleArchive/"
+                class="card-cover"
+              >
+                <img src="files/wordle-archive-preview.png" />
+              </a>
+              <h2 class="card-header">WordleArchive</h2>
+              <p class="card-content textbox">
+                I wrote this CLI app in C++ when the Wordle Archive website was
+                shut down so that my grandpa could still play through the
+                backlog of Wordles. It supports several different play modes,
+                including using a custom word list with any length of words. He
+                enjoyed it so much that he's still using it to try out various
+                starting words and strategies.
+              </p>
+              <p class="card-footer textbox">
+                Check it out on GitHub
+                <a href="https://github.com/arkelley77/WordleArchive/">here</a>.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

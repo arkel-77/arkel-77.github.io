@@ -1,0 +1,445 @@
+/* @import url("common.css"); */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+
+:root {
+  --color-black: hsl(120deg, 5%, 5%);
+  --color-green: hsl(120deg, 100%, 60%);
+}
+
+/* -------------- Colors & fonts -------------- */
+body::before {
+  background-color: var(--color-black);
+}
+body::after {
+  /* vignette */
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+body {
+  color: var(--color-green);
+  font-family: "Comfortaa", sans-serif;
+}
+
+/* -------------- Navbar -------------- */
+.navbar-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0;
+  z-index: -1;
+
+  box-shadow: 0 0 calc(var(--navbar-height) / 2) var(--navbar-height)
+    var(--color-black);
+}
+
+.navbar-title#navbar-selected,
+.navbar-home:not(#navbar-selected) {
+  display: none;
+}
+
+.navbar-title,
+.navbar-page-list > li {
+  margin-top: 2px;
+  height: calc(var(--navbar-height) - 4px);
+
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.25s;
+}
+.navbar-title:hover,
+.navbar-page-list > li:hover,
+#navbar-selected {
+  border-color: var(--color-green);
+}
+
+/* -------------- Style toggle -------------- */
+.style-toggle {
+  background-color: var(--color-green);
+
+  transition: box-shadow 0.25s;
+
+  .slider {
+    background-color: var(--color-black);
+
+    transform: translateX(calc(-0.5 * var(--slider-movement)));
+
+    .fa-moon {
+      color: var(--color-green);
+
+      transform: 0;
+    }
+    .fa-sun {
+      color: var(--color-black);
+
+      transform: translateX(var(--slider-movement));
+    }
+  }
+}
+.style-toggle:hover {
+  box-shadow: 0 0 2px 2px var(--color-green);
+}
+
+/* -------------- Home page layout -------------- */
+.page-home {
+  display: grid;
+  margin: 0 auto;
+
+  .name-and-title {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+
+    margin: 1em 1ch;
+
+    h1 {
+      font-weight: normal;
+      font-size: 72pt;
+    }
+    h2 {
+      font-weight: normal;
+      font-size: 56pt;
+    }
+    h3 {
+      font-weight: normal;
+      font-size: 24pt;
+    }
+  }
+
+  .contact-info {
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 1;
+
+    margin: 1em 1ch;
+
+    display: flex;
+
+    li > a {
+      border-radius: 50%;
+
+      transition: background-color 0.25s, color 0.25s;
+    }
+    li > a:hover {
+      background-color: var(--color-green);
+      color: var(--color-black);
+    }
+  }
+
+  .headshot-wrapper {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 4;
+
+    justify-self: center;
+
+    .headshot {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+
+      border-radius: 200px;
+
+      img {
+        margin: -500px 0 0 -680px;
+      }
+    }
+  }
+
+  .textbox {
+    grid-column: 2 / span 2;
+    grid-row: 5 / span 1;
+
+    margin: 1em 1ch;
+
+    h3 {
+      font-size: 25px;
+    }
+  }
+}
+.page-home::before {
+  content: "";
+  grid-row: 1 / span 1;
+  height: 50px;
+}
+.page-home::after {
+  content: "";
+  grid-column: 4 / span 1;
+}
+
+/* -------------- Portfolio & Service page layouts -------------- */
+.page-portfolio,
+.page-service {
+  .card-list {
+    display: flex;
+    flex-direction: column;
+
+    .card {
+      display: grid;
+      grid-template-columns: auto 300px auto auto;
+
+      border-bottom: 2px solid var(--color-green);
+
+      margin: 0 auto;
+      padding: 1em 0;
+
+      .card-cover {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 5;
+
+        width: 300px;
+        height: 300px;
+
+        border-radius: 150px;
+        overflow: hidden;
+
+        * {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      .card-header {
+        grid-column: 3 / span 1;
+        grid-row: 2 / span 1;
+
+        padding: 1em 1ch 0;
+      }
+
+      .card-content {
+        grid-column: 3 / span 1;
+        grid-row: 3 / span 1;
+
+        padding: 1em 1ch 0;
+
+        q {
+          display: block;
+
+          border-left: 2px solid var(--color-green);
+          padding: 0 1ch;
+          margin: 1ch 0;
+        }
+        q::before {
+          content: "";
+        }
+      }
+
+      .card-footer {
+        grid-column: 3 / span 1;
+        grid-row: 4 / span 1;
+
+        padding: 1em 1ch 0;
+      }
+    }
+    .card:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+/* -------------- Qualifications page layout -------------- */
+.page-qualifications {
+  display: grid;
+
+  margin: 0 auto;
+
+  .quick-access {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    padding: 1em 1ch;
+
+    position: sticky;
+    top: calc(var(--navbar-height) + 1em);
+
+    li {
+      margin-top: 1ch;
+
+      a {
+        margin-left: 1ch;
+
+        border-bottom: 2px solid transparent;
+        transition: border-bottom 0.25s;
+      }
+      a:hover {
+        border-bottom: 2px solid var(--color-green);
+      }
+      a::before {
+        content: "> ";
+      }
+    }
+  }
+
+  .textbox {
+    grid-column: 2 / span 1;
+    padding: 1em 1ch;
+  }
+  .textbox#experience {
+    grid-row: 1 / span 1;
+  }
+  .textbox#areas-of-interest {
+    grid-row: 2 / span 1;
+  }
+  .textbox#resume {
+    grid-row: 3 / span 1;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+.page-qualifications::after {
+  content: "";
+  grid-column: 4 / span 1;
+}
+
+/* -------------- Responsive design -------------- */
+@media (max-width: 1280px) {
+  .page-home {
+    .name-and-title {
+      h1 {
+        font-size: 48pt;
+      }
+      h2 {
+        font-size: 36pt;
+      }
+    }
+  }
+  .page-home::before {
+    height: 75px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-home {
+    .name-and-title {
+      h1 {
+        font-size: 30pt;
+      }
+      h2 {
+        font-size: 18pt;
+      }
+      h3 {
+        font-size: 12pt;
+      }
+    }
+    .headshot-wrapper {
+      width: 300px;
+      height: 300px;
+      transform: translate(-12.5%, -12.5%) scale(75%);
+    }
+  }
+
+  .page-portfolio,
+  .page-service {
+    .card-list {
+      .card {
+        grid-template-columns: auto auto 300px auto auto;
+        grid-template-rows: 300px auto auto;
+
+        .card-cover {
+          grid-column: 3 / span 1;
+          grid-row: 1 / span 1;
+        }
+
+        .card-header {
+          grid-column: 2 / span 3;
+        }
+
+        .card-content {
+          grid-column: 2 / span 3;
+        }
+      }
+      .card::after {
+        content: "";
+        grid-column: 5;
+      }
+    }
+  }
+
+  .page-qualifications {
+    grid-template-columns: auto auto 0 auto;
+
+    .quick-access {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  /* collapse the nav list into a hamburger menu */
+
+  .navbar-content {
+    .navbar-title#navbar-selected {
+      border-color: transparent !important;
+    }
+
+    .navbar-menu-button {
+      background-color: var(--color-green);
+      color: var(--color-black);
+
+      transition: box-shadow 0.25s;
+    }
+    .navbar-menu-button:hover {
+      box-shadow: 0 0 2px 2px var(--color-green);
+    }
+
+    .navbar-page-list {
+      li {
+        border: 2px solid transparent;
+
+        transition: border-left 0.25s;
+      }
+      li:hover,
+      #navbar-selected {
+        border-color: transparent;
+        border-left: 2px solid var(--color-green);
+      }
+    }
+    .navbar-page-list::before {
+      content: "";
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      background-color: var(--color-black);
+
+      box-shadow: 0 0 10px 10px var(--color-black);
+
+      z-index: -1;
+    }
+  }
+
+  .page-home {
+    .name-and-title {
+      width: 300px;
+    }
+
+    .headshot-wrapper {
+      grid-column: 2 / span 2;
+      grid-row: 1 / span 1;
+    }
+
+    .contact-info {
+      grid-column: 3 / span 1;
+      grid-row: 2 / span 1;
+
+      justify-self: end;
+
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .page-home {
+    .name-and-title {
+      h1 {
+        font-size: 24pt;
+      }
+    }
+  }
+}
