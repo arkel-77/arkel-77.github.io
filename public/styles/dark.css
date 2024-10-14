@@ -23,6 +23,7 @@ body::after {
 }
 
 body {
+  background-color: var(--color-black);
   color: var(--color-green);
   font-family: "Comfortaa", sans-serif;
 }
