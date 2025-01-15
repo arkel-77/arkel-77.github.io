@@ -219,6 +219,8 @@ body {
         q {
           display: block;
 
+          font-size: 0.8em;
+
           border-left: 2px solid var(--color-green);
           padding: 0 1ch;
           margin: 1ch 0;
