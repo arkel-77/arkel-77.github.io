@@ -5,15 +5,12 @@
 
 .style-toggle {
     .slider {
-        transform: translateX(calc(-0.5 * var(--slider-movement)));
-
-        .fa-moon {
-            color: var(--color-fg);
-            transform: 0;
-        }
-        .fa-sun {
-            color: var(--color-bg);
-            transform: translateX(var(--slider-movement));
-        }
+        transform: translateX(calc(0.5 * var(--slider-movement)));
+    }
+    .fa-moon {
+        color: var(--color-fg);
+    }
+    .fa-sun {
+        color: var(--color-bg);
     }
 }
