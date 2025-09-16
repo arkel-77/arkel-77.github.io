@@ -4,13 +4,13 @@
 }
 
 .style-toggle {
-    .slider {
-        transform: translateX(calc(-0.5 * var(--slider-movement)));
-    }
-    .fa-moon {
-        color: var(--color-bg);
-    }
-    .fa-sun {
-        color: var(--color-fg);
-    }
+  .slider {
+    transform: translateX(calc(-0.5 * var(--slider-movement)));
+  }
+  .fa-moon {
+    color: var(--color-bg);
+  }
+  .fa-sun {
+    color: var(--color-fg);
+  }
 }
